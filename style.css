@@ -177,7 +177,8 @@ nav ul li a:focus::after {
 }
 .hero p {
   font-size: 1.1rem;
-  color: #333;
+  color: #fff;
+  font-weight: 500;
   z-index: 1;
   text-align: center;
 }
@@ -417,6 +418,9 @@ body.dark-mode footer {
 }
 body.dark-mode footer a {
   color: #a5b4fc;
+}
+body.dark-mode .hero p {
+  color: #fff;
 }
 
 /* --- RESPONSIVE --- */
