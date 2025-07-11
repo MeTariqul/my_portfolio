@@ -59,6 +59,7 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  background: none; /* Remove any solid background */
 }
 nav ul li a {
   text-decoration: none;
