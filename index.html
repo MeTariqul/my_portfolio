@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MD tariqul islam | Portfolio</title>
+  <title>MD Tariqul Islam | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
@@ -12,42 +12,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="logo">MD tariqul islam</div>
-    <nav id="navbar">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-    <button id="darkModeToggle" aria-label="Toggle dark mode"><i class="fa-regular fa-moon"></i></button>
+  <header class="header-bar">
+    <div class="container nav-container">
+      <div class="logo" tabindex="0">MD Tariqul Islam</div>
+      <nav id="navbar" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
   </header>
   <main id="home">
-    <section class="hero">
+    <section class="hero reveal">
       <div class="hero-bg"></div>
-      <img class="profile-img" src="https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-6/508303020_1419441869197243_9110760455282139220_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFEXoVHaob59Z8kgc6fNSjG1oS6ynuE_Q7WhLrKe4T9Dst1jFm4AwrbHKmZgipExiFkb2d-nKRq3i-YXe_M4wK0&_nc_ohc=9t5XwcM1x58Q7kNvwGbHRQg&_nc_oc=AdnE-0LfYYvZ4a_Tz78uLWFUMyV7RhMwGw8vRH_YumHEHCn9MJTQJewD3U1ByXAGIaw&_nc_zt=23&_nc_ht=scontent.fdac5-1.fna&_nc_gid=XaY-rpZseYhTNMBkvT9WBA&oh=00_AfM1NTXg1vsiqHtVaaPk7fjSB411ybc6ZWUPQW8-Yiu_iw&oe=6868773E" alt="Profile Image">
-      <h1 class="fade-in">MD tariqul islam</h1>
-      <h2 class="fade-in">CSE Student</h2>
-      <p class="fade-in">Welcome to my portfolio! Connect with me and explore my work, skills, and projects.</p>
-      <div class="hero-links fade-in">
+      <img class="profile-img" src="https://i.postimg.cc/sXQZCd0Z/508303020-1419441869197243-9110760455282139220-n.jpg" alt="Profile Image">
+      <h1>MD Tariqul Islam</h1>
+      <div class="typewriter" id="typewriter"></div>
+      <p>Welcome to my portfolio! Connect with me and explore my work, skills, and projects.</p>
+      <div class="hero-links">
         <a href="mailto:tarif_me@outlook.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/metariqul?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/metariqul" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/MeTariqul" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
         <a href="tel:+8801629866954" title="Call"><i class="fa-solid fa-phone"></i></a>
       </div>
     </section>
-    <section class="cards">
-      <div class="card" id="about">
+    <section class="cards-section container">
+      <div class="card reveal" id="about">
         <div class="card-icon"><i class="fa-solid fa-user"></i></div>
         <h2>About Me</h2>
         <p>Hello! I'm MD Tariqul Islam, a dedicated Computer Science & Engineering student with a passion for technology, problem-solving, and continuous learning. I thrive on building creative solutions, exploring new tools, and turning ideas into real-world projects. My journey is driven by curiosity and a commitment to personal and professional growth.</p>
       </div>
-      <div class="card" id="projects">
+      <div class="card reveal" id="projects">
         <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
         <h2>Projects</h2>
         <ul class="project-list">
@@ -61,12 +62,12 @@
           </li>
         </ul>
       </div>
-      <div class="card" id="contact">
+      <div class="card reveal" id="contact">
         <div class="card-icon"><i class="fa-solid fa-address-book"></i></div>
         <h2>Contact</h2>
         <ul class="contact-list">
           <li><i class="fa-solid fa-envelope"></i> <a href="mailto:tarif_me@outlook.com">tarif_me@outlook.com</a></li>
-          <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/metariqul?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">metariqul</a></li>
+          <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/metariqul" target="_blank">metariqul</a></li>
           <li><i class="fab fa-github"></i> <a href="https://github.com/MeTariqul" target="_blank">MeTariqul</a></li>
           <li><i class="fa-solid fa-phone"></i> <a href="tel:+8801629866954">+8801629866954</a></li>
         </ul>
@@ -74,7 +75,9 @@
     </section>
   </main>
   <footer>
-    <p>Contact: <a href="mailto:tarif_me@outlook.com">tarif_me@outlook.com</a> | &copy; 2024 MD tariqul islam</p>
+    <div class="container">
+      <p>Contact: <a href="mailto:tarif_me@outlook.com">tarif_me@outlook.com</a> | &copy; 2024 MD Tariqul Islam</p>
+    </div>
   </footer>
 </body>
 </html> 

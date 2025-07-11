@@ -1,45 +1,82 @@
+// Utility: Detect system dark mode
+function systemPrefersDark() {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 // Hamburger menu toggle
 const hamburger = document.getElementById('hamburger');
 const navUl = document.querySelector('nav ul');
-hamburger.addEventListener('click', () => {
-  navUl.classList.toggle('active');
-});
-// Close menu on link click (mobile)
+if (hamburger && navUl) {
+  hamburger.addEventListener('click', () => {
+    const expanded = navUl.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', expanded);
+    navUl.setAttribute('aria-hidden', !expanded);
+  });
+  hamburger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      hamburger.click();
+    }
+  });
+}
 document.querySelectorAll('nav ul li a').forEach(link => {
   link.addEventListener('click', () => {
-    if (window.innerWidth <= 700) navUl.classList.remove('active');
+    if (window.innerWidth <= 700 && navUl) navUl.classList.remove('active');
   });
 });
-// Smooth scrolling (handled by CSS scroll-behavior)
-// Dark mode toggle
-const darkModeToggle = document.getElementById('darkModeToggle');
-const darkModeIcon = darkModeToggle.querySelector('i');
-darkModeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  if(document.body.classList.contains('dark-mode')) {
-    localStorage.setItem('theme', 'dark');
-    darkModeIcon.classList.remove('fa-moon');
-    darkModeIcon.classList.add('fa-sun');
+
+// Auto dark mode sync with system
+function setDarkMode(enabled) {
+  document.body.classList.toggle('dark-mode', enabled);
+}
+function applySystemTheme() {
+  const theme = localStorage.getItem('theme');
+  if (theme === 'dark' || (!theme && systemPrefersDark())) {
+    setDarkMode(true);
   } else {
-    localStorage.setItem('theme', 'light');
-    darkModeIcon.classList.remove('fa-sun');
-    darkModeIcon.classList.add('fa-moon');
+    setDarkMode(false);
   }
-});
-// Load theme preference
-window.addEventListener('DOMContentLoaded', () => {
-  if(localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-    darkModeIcon.classList.remove('fa-moon');
-    darkModeIcon.classList.add('fa-sun');
+}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
+window.addEventListener('DOMContentLoaded', applySystemTheme);
+
+// --- TYPEWRITER EFFECT ---
+const typewriterEl = document.getElementById('typewriter');
+const typewriterText = 'CSE Student';
+function typeWriter(text, el, speed = 90) {
+  el.textContent = '';
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    } else {
+      el.textContent = text; // Ensure full text
+    }
+  }
+  type();
+}
+if (typewriterEl) {
+  typeWriter(typewriterText, typewriterEl);
+}
+
+// --- SCROLL REVEAL ANIMATION (IntersectionObserver) ---
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
   } else {
-    darkModeIcon.classList.remove('fa-sun');
-    darkModeIcon.classList.add('fa-moon');
+    // Fallback for old browsers
+    reveals.forEach(el => el.classList.add('visible'));
   }
-  // Fade-in animation for hero section
-  document.querySelectorAll('.hero .fade-in').forEach((el, i) => {
-    setTimeout(() => {
-      el.style.opacity = 1;
-    }, 200 + i * 200);
-  });
-}); 
+}
+window.addEventListener('DOMContentLoaded', revealOnScroll); 
