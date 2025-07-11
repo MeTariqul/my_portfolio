@@ -79,4 +79,27 @@ function revealOnScroll() {
     reveals.forEach(el => el.classList.add('visible'));
   }
 }
-window.addEventListener('DOMContentLoaded', revealOnScroll); 
+window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+// --- DARK MODE TOGGLE BUTTON ---
+const darkModeToggle = document.getElementById('darkModeToggle');
+if (darkModeToggle) {
+  const icon = darkModeToggle.querySelector('i');
+  function updateIcon() {
+    if (document.body.classList.contains('dark-mode')) {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    } else {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    }
+  }
+  darkModeToggle.addEventListener('click', () => {
+    const isDark = !document.body.classList.contains('dark-mode');
+    setDarkMode(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateIcon();
+  });
+  window.addEventListener('DOMContentLoaded', updateIcon);
+  window.addEventListener('storage', updateIcon);
+} 
