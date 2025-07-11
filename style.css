@@ -59,7 +59,8 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  background: none; /* Remove any solid background */
+  background: none !important;
+  border: none !important;
 }
 nav ul li a {
   text-decoration: none;
@@ -68,6 +69,8 @@ nav ul li a {
   font-size: 1.1rem;
   position: relative;
   transition: color 0.2s;
+  background: none !important;
+  border: none !important;
 }
 nav ul li a::after {
   content: '';
@@ -110,14 +113,21 @@ nav ul li a:focus::after {
 #darkModeToggle {
   background: none;
   border: none;
+  outline: none;
+  color: #fff; /* Match header text */
   font-size: 1.5rem;
+  margin-left: 1.2rem;
   cursor: pointer;
-  margin-left: 1rem;
-  color: #fff;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  padding: 0.2em 0.4em;
 }
-#darkModeToggle:hover {
-  color: #facc15;
+
+#darkModeToggle:hover,
+#darkModeToggle:focus {
+  color: #facc15; /* Accent color on hover/focus */
+  transform: scale(1.15) rotate(-10deg);
 }
 
 /* --- HERO --- */
@@ -178,7 +188,7 @@ nav ul li a:focus::after {
 }
 .hero p {
   font-size: 1.1rem;
-  color: #fff;
+  color: #23272a;
   font-weight: 500;
   z-index: 1;
   text-align: center;
