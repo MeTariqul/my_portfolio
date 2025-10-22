@@ -7,11 +7,11 @@ A modern, responsive portfolio website with 3D effects and smooth transitions sh
 - **3D Cube Animation**: Interactive rotating cube with technology icons
 - **Glitch Effect**: Eye-catching text animation for the name
 - **3D Hover Effects**: Cards and icons respond to mouse movement with 3D tilts
+- **Custom Animated Cursor**: Dual-layer cursor with hover effects
+- **Mouse Tracking Parallax**: Hero section responds to mouse movement
 - **Smooth Animations**: Scroll-triggered animations and transitions
 - **Responsive Design**: Fully responsive layout for all devices
 - **Modern UI**: Clean, dark-themed design with gradient accents
-- **Project Showcase**: Display of GitHub repositories and projects
-- **Contact Form**: Functional contact form (frontend only)
 
 ## 🚀 Technologies Used
 
@@ -28,9 +28,7 @@ portfolio/
 ├── index.html
 ├── styles.css
 ├── script.js
-├── README.md
-└── assets/
-    └── (images and other media)
+└── README.md
 ```
 
 ## 🎨 Key Design Elements
@@ -45,6 +43,7 @@ portfolio/
 - Smooth scrolling navigation
 - Fade-in animations on scroll
 - Hover effects on buttons and interactive elements
+- Custom animated cursor with hover effects
 - Loading screen animation
 
 ### Responsive Design
@@ -59,12 +58,12 @@ portfolio/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/MeTariqul/portfolio.git
+   git clone https://github.com/MeTariqul/my_portfolio.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd portfolio
+   cd my_portfolio
    ```
 
 3. Open `index.html` in your browser or use a local server:
@@ -81,7 +80,7 @@ portfolio/
 #### GitHub Pages
 1. Push the code to a GitHub repository
 2. Go to Repository Settings
-3. Scroll to "GitHub Pages" section
+3. Scroll to "Pages" section
 4. Select "main" branch and "/ (root)" folder
 5. Click "Save"
 6. Your site will be available at `https://[username].github.io/[repository-name]/`
