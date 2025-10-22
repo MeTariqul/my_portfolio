@@ -124,6 +124,14 @@ portfolio/
 - Text: `#f4f4f4` (Light Gray)
 - Accents: Gradient combinations of the primary colors
 
+## 🌐 Social Media Links
+
+- **GitHub**: [MeTariqul](https://github.com/MeTariqul)
+- **LinkedIn**: [metariqul](https://www.linkedin.com/in/metariqul/)
+- **Facebook**: [tarif.me](https://www.facebook.com/tarif.me/)
+- **Twitter**: [gbtariqul37](https://x.com/gbtariqul37)
+- **Instagram**: [me_tarif](https://www.instagram.com/me_tarif/)
+
 ## 🤝 Contributing
 
 This is a personal portfolio site, but suggestions and feedback are welcome.
@@ -137,8 +145,13 @@ This is a personal portfolio site, but suggestions and feedback are welcome.
 ## 📧 Contact
 
 For inquiries, you can reach me through:
+- Email: [tarif_me@outlook.com](mailto:tarif_me@outlook.com)
 - GitHub: [MeTariqul](https://github.com/MeTariqul)
-- Email: (Not publicly available)
+- LinkedIn: [metariqul](https://www.linkedin.com/in/metariqul/)
+- Facebook: [tarif.me](https://www.facebook.com/tarif.me/)
+- Twitter: [gbtariqul37](https://x.com/gbtariqul37)
+- Instagram: [me_tarif](https://www.instagram.com/me_tarif/)
+- Location: Dhaka, Bangladesh
 
 ## 📄 License
 

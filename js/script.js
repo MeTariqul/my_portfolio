@@ -9,56 +9,6 @@ window.addEventListener('load', function() {
     }, 1000);
 });
 
-// Custom Cursor
-const cursor = document.querySelector('.cursor');
-const cursorFollower = document.querySelector('.cursor-follower');
-
-if (cursor && cursorFollower) {
-    let mouseX = 0;
-    let mouseY = 0;
-    let posX = 0;
-    let posY = 0;
-    
-    // Track mouse movement
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    // Smooth animation loop
-    const animateCursor = () => {
-        // Smooth interpolation for main cursor
-        posX += (mouseX - posX) / 4;
-        posY += (mouseY - posY) / 4;
-        
-        // Apply positions
-        cursor.style.left = `${mouseX}px`;
-        cursor.style.top = `${mouseY}px`;
-        
-        cursorFollower.style.left = `${posX}px`;
-        cursorFollower.style.top = `${posY}px`;
-        
-        requestAnimationFrame(animateCursor);
-    };
-    
-    animateCursor();
-    
-    // Add hover effects to interactive elements
-    const hoverElements = document.querySelectorAll('a, button, .btn, .project-card, .skill-icon');
-    
-    hoverElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
-            cursorFollower.classList.add('hover');
-        });
-        
-        element.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
-            cursorFollower.classList.remove('hover');
-        });
-    });
-}
-
 // Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -247,64 +197,27 @@ if (cube) {
     });
 }
 
-// Enhanced mouse tracking for hero section
+// Add 3D tilt effect to hero section
 const heroSection = document.querySelector('.hero');
 if (heroSection) {
-    // Create floating particles
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles-container';
-    heroSection.appendChild(particlesContainer);
-    
-    // Create floating particles
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        particle.style.width = `${Math.random() * 8 + 2}px`;
-        particle.style.height = particle.style.width;
-        particle.style.animationDuration = `${Math.random() * 15 + 10}s`;
-        particle.style.animationDelay = `${Math.random() * 5}s`;
-        particle.style.opacity = Math.random() * 0.7 + 0.3;
-        particlesContainer.appendChild(particle);
-    }
-    
-    // Enhanced mouse move tracking for 3D effect
-    let mouseX = 0;
-    let mouseY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    
     heroSection.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth - 0.5) * 50;
-        mouseY = (e.clientY / window.innerHeight - 0.5) * 50;
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        heroSection.style.background = `radial-gradient(circle at center, #1a1a2e 0%, #0f0f1b 100%)`;
+        heroSection.style.transform = `perspective(1000px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
     });
     
-    // Smooth animation loop
-    const animateHero = () => {
-        // Smooth interpolation for mouse movement
-        currentX += (mouseX - currentX) * 0.05;
-        currentY += (mouseY - currentY) * 0.05;
-        
-        // Apply 3D transformation to hero content
-        const heroContent = document.querySelector('.hero-content');
-        heroContent.style.transform = `translateZ(50px) rotateY(${currentX/10}deg) rotateX(${-currentY/10}deg)`;
-        
-        // Move cube with mouse but with a parallax effect
-        const cubeContainer = document.querySelector('.cube-container');
-        cubeContainer.style.transform = `rotateX(${-25 + currentY/2}deg) rotateY(${currentX}deg)`;
-        
-        requestAnimationFrame(animateHero);
-    };
-    
-    animateHero();
-    
-    // Reset on mouse leave
     heroSection.addEventListener('mouseleave', () => {
-        mouseX = 0;
-        mouseY = 0;
+        heroSection.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
     });
 }
+
+// Add floating animation to cube faces
+const cubeFaces = document.querySelectorAll('.face');
+cubeFaces.forEach((face, index) => {
+    // Add unique animation delay to each face
+    face.style.animation = `float 3s ease-in-out ${index * 0.2}s infinite`;
+});
 
 // Add keyframes for floating animation
 const style = document.createElement('style');
@@ -315,37 +228,11 @@ style.innerHTML = `
         100% { transform: translateZ(100px); }
     }
     
-    @keyframes floatParticle {
-        0% { transform: translateY(0) translateX(0) translateZ(0); opacity: 0; }
-        10% { opacity: 1; }
-        90% { opacity: 0.7; }
-        100% { transform: translateY(-100px) translateX(20px) translateZ(20px); opacity: 0; }
-    }
-    
     .face.front { animation-name: float; }
     .face.back { animation-name: float; animation-delay: 0.2s; }
     .face.right { animation-name: float; animation-delay: 0.4s; }
     .face.left { animation-name: float; animation-delay: 0.6s; }
     .face.top { animation-name: float; animation-delay: 0.8s; }
     .face.bottom { animation-name: float; animation-delay: 1s; }
-    
-    .particles-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-    }
-    
-    .particle {
-        position: absolute;
-        background: rgba(108, 99, 255, 0.7);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: floatParticle linear infinite;
-        box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
-    }
 `;
 document.head.appendChild(style);
